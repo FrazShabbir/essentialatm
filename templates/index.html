@@ -16,20 +16,17 @@
     <header>
         <div class="bg-dark">
             <nav class="container navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#"><img src="assets/images/atm.png" alt=""></a>
+                <a class="navbar-brand" href="#"><img src="{% static 'assets/images/atm.png' %}" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="#">{{ user.get_username }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sign In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signup'%}">Sign Up</a>
+                            <a class="nav-link" href="{% url 'logout'%}">logout</a>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +45,7 @@
 
                 <div class="col-lg-5 col-md-5 col-sm-12 offset-lg-1 offset-md-1">
                     <div class="quick-amount box mb-5">
-                        <a href="#">
+                        <a href="{% url 'quickamount'%}">
                             <h2>Quick Amount</h2>
                         </a>
                     </div>
@@ -56,7 +53,7 @@
 
                 <div class="col-lg-5 col-md-5 col-sm-12">
                     <div class="amount box mb-5">
-                        <a href="#">
+                        <a href="{% url 'amount'%}">
                             <h2>Amount</h2>
                         </a>
                     </div>
@@ -64,21 +61,21 @@
 
                 <div class="col-lg-5 col-md-5 col-sm-12 offset-lg-1 offset-md-1">
                     <div class="balance-inquiry box mb-5">
-                        <a href="#">
+                        <a href="{% url 'balanceinq'%}">
                             <h2>Balance Inquiry</h2>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-12">
                     <div class="get-help box mb-5">
-                        <a href="#">
+                        <a href="{% url 'gethelp'%}">
                             <h2>Get Help</h2>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-8 offset-lg-4 offset-md-4 offset-2">
                     <div class="log-out box">
-                        <a href="#">
+                        <a href="{% url 'logout'%}">
                             <h2>Log Out</h2>
                         </a>
                     </div>
@@ -87,204 +84,6 @@
         </div>
     </section>
 
-    <section id="quick-amount">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="quick-amount-head text-center mb-5">
-                        <h1>Quick Amount</h1>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-5 col-sm-12 offset-lg-1 offset-md-1">
-                    <div class="quick-price box mb-5">
-                        <a href="#">
-                            <h2>5,000</h2>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-12">
-                    <div class="quick-price box mb-5">
-                        <a href="#">
-                            <h2>10,000</h2>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-12 offset-lg-1 offset-md-1">
-                    <div class="quick-price box mb-5">
-                        <a href="#">
-                            <h2>15,000</h2>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-12">
-                    <div class="quick-price box mb-5">
-                        <a href="#">
-                            <h2>20,000</h2>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-8 offset-lg-4 offset-md-4 offset-2">
-                    <div class="go-back box text-center">
-                        <a href="#">
-                            <h2>Go back</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="print-receipt">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="receipt-head text-center mb-5">
-                        <h1>Print Receipt</h1>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 offset-lg-2">
-                    <div class="receipt-details">
-                        <h3>Youre Previous Balance</h3>
-                        <h3>1,50,000 Rs.</h3>
-                        <h3>Balance Withdrwan</h3>
-                        <h3>30,000</h3>
-                        <h3>Youre NewBalance</h3>
-                        <h3>1,20,000</h3>
-
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="print-btns text-center mt-5">
-                        <a href="#" class="btn w-100 mb-3">
-                            <h2>Print</h2>
-                        </a>
-                        <a href="#" class="btn w-100">
-                            <h2>Go back</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="get-help">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="help-head text-center mb-5">
-                        <h1>Get Help</h1>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="help-head mb-2">
-                        <h3>Quick Ammount</h3>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-4">
-                        <ul>
-                            <li>
-                                <p>Get you money with one click. There is default ammount set, select your money choise and hit the enter and get your money.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="help-head mb-2">
-                        <h3>Manual Ammount</h3>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-4">
-                        <ul>
-                            <li>
-                                <p>For menual you have to enter your amount in between limit and get your ammount.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="help-head mb-2">
-                        <h3>Balance Inquiry</h3>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-4">
-                        <ul>
-                            <li>
-                                <p>Your can see your current balance in your account.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="help-head mb-2">
-                        <h3>About ATM</h3>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-4">
-                        <ul>
-                            <li>
-                                <p>EssenialSofts is an IT Company. This product is powered by <a style="text-decoration: underline; color: black; font-weight: bold;" href="https://www.essentialsofts.com">EssenialSofts</a></p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="amount">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="amount-head text-center mb-4">
-                        <h1>Amount</h1>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 offset-lg-3">
-                    <div class="amount-box">
-                        <form>
-                            <input type="number" class="form-control" placeholder="Amount Rs." required>
-                            <div class="amount-btns text-center mt-4">
-                                <button class="submit btn w-25 mr-2"><h2>Next</h2></button>
-                                <a href="#" class="btn w-25">
-                                    <h2>Back</h2>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="balance-inquiry">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="inquiry-head text-center mb-4">
-                        <h1>Balance Inquiry</h1>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 offset-lg-3">
-                    <div class="current-balance text-center">
-                        <h2>Your Current Balance is:</h2>
-                        <h2>13,09,500 Rs.</h2>
-                    </div>
-                    <div class="amount-btns text-center mt-4">
-                        <button class="submit btn mr-2 w-25"><h2>Next</h2></button>
-                        <a href="#" class="btn w-25">
-                            <h2>Back</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <footer>
         <div class="container">
             <div class="row">

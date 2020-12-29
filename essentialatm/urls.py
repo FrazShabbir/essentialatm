@@ -18,8 +18,19 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index,name="index"),
+    path('', views.signin,name="signin"),
     path('sign-up/', views.signup,name="signup"),
-#    path('about', views.about,name="about"),
+    path('sign-in/', views.signin,name="signin"),
+    path('home/', views.index,name="index"),
 
+    path('sign-out/', views.logout,name="logout"),
+    path('inputamount/', views.amount,name="amount"),
+    path('totalbalance/', views.balanceinq,name="balanceinq"),
+    path('gethelp/', views.gethelp,name="gethelp"),
+    path('quickamount/', views.quickamount,name="quickamount"),
+    path('checkout/', views.checkout,name="checkout"),
+    path('quickamount/baltenk/', views.baltenk,name="baltenk"),
+    path('quickamount/balfivek/', views.balfivek,name="balfivek"),
+    path('quickamount/balfifk/', views.balfifk,name="balfifk"),
+    path('quickamount/baltwk/', views.baltwk,name="baltwk"),
 ]

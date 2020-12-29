@@ -34,9 +34,9 @@ def signup(request):
                  user1.save()
                  user = useracc(username=username, user_pass=user_pass, email=email, first_name=first_name, last_name=last_name,balance=user_balane)
                  user.save()
-                 return redirect('/')
+                 return render(request,"sign-in.html")
   
-             return redirect('/')
+             return redirect('signup')
          else:
              messages.info(request,'Password Not matching')
              return redirect('signup')
@@ -51,7 +51,7 @@ def signup(request):
 
 def signin(request):
     if request.method=='POST':
-        username=request.POST['email']
+        username=request.POST['username']
         password=request.POST['password']
         
         user1 = auth.authenticate(username=username,password=password)
@@ -59,8 +59,8 @@ def signin(request):
         if user1 is not None:
             auth.login(request,user1)
             getuser=request.user
-            blogs= blogsSection.objects.filter(author=getuser).order_by('-B_date')
-            return render(request,"index.html" )
+            details= useracc.objects.get(username=getuser)
+            return render(request,"index.html",{'details':details})
         else:
             messages.info(request,"Incorrect Username or Password")
             return render(request,"sign-in.html")
@@ -72,3 +72,80 @@ def signin(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+
+def amount(request):
+    if request.method=='POST':
+        amount=request.POST['enteredamount']
+        getuser=request.user
+        details= useracc.objects.get(username=getuser)
+        prebal = details.balance
+        newbal=details.balance-int(amount)
+        withdraw=int(amount)
+        details.balance=newbal
+        details.save()
+        details= useracc.objects.get(username=getuser)
+        return render(request,"checkout.html",{'details':details, 'prebal':prebal,'withdraw':withdraw})
+
+    else:
+        return render(request,"amount.html")
+
+def balanceinq(request):
+    getuser=request.user
+    details= useracc.objects.get(username=getuser)
+    return render(request,"balanceinq.html",{'details':details})
+
+
+def gethelp(request):
+    return render(request,"gethelp.html")
+
+def quickamount(request):
+    return render(request,"quickbalance.html")
+
+def checkout(request):
+    return render(request,"checkout.html")
+
+def baltenk(request):
+    getuser=request.user
+    details= useracc.objects.get(username=getuser)
+    prebal = details.balance
+    withdraw=10000
+    newbal=details.balance-10000
+    details.balance=newbal
+    details.save()
+    details= useracc.objects.get(username=getuser)
+    return render(request,"checkout.html",{'details':details, 'prebal':prebal,'withdraw':withdraw})
+
+
+def balfivek(request):
+    getuser=request.user
+    details= useracc.objects.get(username=getuser)
+    prebal = details.balance
+    newbal=details.balance-5000
+    withdraw=5000
+    details.balance=newbal
+    details.save()
+    details= useracc.objects.get(username=getuser)
+    return render(request,"checkout.html",{'details':details, 'prebal':prebal,'withdraw':withdraw})
+
+def balfifk(request):
+    getuser=request.user
+    details= useracc.objects.get(username=getuser)
+    prebal = details.balance
+    newbal=details.balance-15000
+    withdraw=15000
+    details.balance=newbal
+    details.save()
+    details= useracc.objects.get(username=getuser)
+    return render(request,"checkout.html",{'details':details, 'prebal':prebal,'withdraw':withdraw})
+
+def baltwk(request):
+    getuser=request.user
+    details= useracc.objects.get(username=getuser)
+    prebal = details.balance
+    newbal=details.balance-20000
+    withdraw=20000
+    details.balance=newbal
+    details.save()
+    details= useracc.objects.get(username=getuser)
+    return render(request,"checkout.html",{'details':details, 'prebal':prebal,'withdraw':withdraw})

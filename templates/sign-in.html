@@ -44,7 +44,7 @@
                         <img src="{% static 'assets/images/signin-image.jpg' %}">
                     </div>
                     <div class="create-acc text-center mt-3">
-                        <a href="#">Create An Account</a>
+                        <a href="{% url 'signup'%}">Create An Account</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -57,10 +57,10 @@
                                 {% csrf_token%}
                                 <i class="user fas fa-user"></i>
                                 <input type="text" class="form-control mb-3" name="username" id="username" placeholder="Your Username" required>
-                                <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required>
+                                <input type="password" class="form-control" name="password" id="pass" placeholder="Password" required>
                                 <i class="lock fas fa-lock"></i>
                                 <div class="signin-box mt-3">
-                                    <input type="checkbox" class="form-control" name="signin-checkbox" id="signin-checkbox" required><span class="ml-3">Remember Me</span>
+                                    <input type="checkbox" class="form-control" name="signin-checkbox" id="signin-checkbox"><span class="ml-3">Remember Me</span>
                                 </div>
                                 {% for message in messages%}
                                 <p style="color: red;">{{message}}</p>
