@@ -4,6 +4,10 @@ from django.contrib import messages
 from .models import useracc
 import requests 
 import datetime
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+
 
 # Create your views here.
 def index(request):
@@ -186,9 +190,6 @@ def baltwk(request):
 
 
 
-import io
-from django.http import FileResponse
-from reportlab.pdfgen import canvas
 
 def printpdf(request):
     buffer = io.BytesIO()
