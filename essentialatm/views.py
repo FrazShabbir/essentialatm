@@ -7,9 +7,9 @@ import datetime
 
 # Create your views here.
 def index(request):
-    # products= addproduct.objects.order_by('-p_date_update').all()
-    # return render(request,'index.html',{'products':products})
-    return render(request,'index.html')
+    getuser=request.user
+    details= useracc.objects.get(username=getuser)
+    return render(request,"index.html",{'details':details})
 
 
 def signup(request):
@@ -89,6 +89,26 @@ def amount(request):
 
     else:
         return render(request,"amount.html")
+
+
+def deposit(request):
+    if request.method=='POST':
+        amount=request.POST['enteredamount']
+        getuser=request.user
+        details= useracc.objects.get(username=getuser)
+        prebal = details.balance
+        newbal=prebal+int(amount)
+        submitted=int(amount)
+        details.balance=newbal
+        details.save()
+        details= useracc.objects.get(username=getuser)
+        return render(request,"thankyou.html",{'newbal':newbal, 'prebal':prebal,'submitted':submitted})
+
+    else:
+        return render(request,"deposit.html")
+
+
+
 
 def balanceinq(request):
     getuser=request.user

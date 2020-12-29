@@ -16,14 +16,20 @@
     <header>
         <div class="bg-dark">
             <nav class="container navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#"><img src="{% static 'assets/images/atm.png' %}" alt=""></a>
+                <a class="navbar-brand" href="{% url 'index'%}"><img src="{% static 'assets/images/atm.png' %}" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ user.get_username }}</a>
+                            <p class="nav-link">hello! {{ details.first_name }} {{ details.last_name }} </p>
+                        </li>
+                        <li class="nav-item">
+                            <p class="nav-link">Total Amount :{{ details.balance }}</p>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'deposit'%}">Deposit cash</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout'%}">logout</a>
