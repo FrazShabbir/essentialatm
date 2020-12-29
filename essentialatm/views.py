@@ -88,7 +88,9 @@ def amount(request):
         return render(request,"checkout.html",{'details':details, 'prebal':prebal,'withdraw':withdraw})
 
     else:
-        return render(request,"amount.html")
+        getuser=request.user
+        details= useracc.objects.get(username=getuser)
+        return render(request,"amount.html",{'details':details})
 
 
 def deposit(request):
@@ -105,7 +107,7 @@ def deposit(request):
         return render(request,"thankyou.html",{'newbal':newbal, 'prebal':prebal,'submitted':submitted})
 
     else:
-        return render(request,"deposit.html")
+        return render(request,"deposit.html",{'details':details})
 
 
 
@@ -117,10 +119,14 @@ def balanceinq(request):
 
 
 def gethelp(request):
-    return render(request,"gethelp.html")
+    getuser=request.user
+    details= useracc.objects.get(username=getuser)
+    return render(request,"gethelp.html",{'details':details})
 
 def quickamount(request):
-    return render(request,"quickbalance.html")
+    getuser=request.user
+    details= useracc.objects.get(username=getuser)
+    return render(request,"quickbalance.html",{'details':details})
 
 def checkout(request):
     return render(request,"checkout.html")
@@ -169,3 +175,26 @@ def baltwk(request):
     details.save()
     details= useracc.objects.get(username=getuser)
     return render(request,"checkout.html",{'details':details, 'prebal':prebal,'withdraw':withdraw})
+
+
+
+
+
+
+
+
+
+
+
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+
+def printpdf(request):
+    buffer = io.BytesIO()
+    p = canvas.Canvas(buffer)
+    p.drawString(0, 10, "Hello world.")
+    p.showPage()
+    p.save()
+    buffer.seek(0)
+    return FileResponse(buffer, as_attachment=True, filename='essentialbank.pdf')

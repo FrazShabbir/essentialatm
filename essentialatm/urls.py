@@ -29,6 +29,7 @@ urlpatterns = [
     path('gethelp/', views.gethelp,name="gethelp"),
     path('quickamount/', views.quickamount,name="quickamount"),
     path('checkout/', views.checkout,name="checkout"),
+    path('printpdf/', views.printpdf,name="printpdf"),
     path('quickamount/baltenk/', views.baltenk,name="baltenk"),
     path('quickamount/balfivek/', views.balfivek,name="balfivek"),
     path('quickamount/balfifk/', views.balfifk,name="balfifk"),
