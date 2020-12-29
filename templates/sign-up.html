@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <title>Intro Template</title>
+</head>
+
+<body>
+    <header>
+        <div class="bg-dark">
+            <nav class="container navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#"><img src="{% static 'assets/images/atm.png' %}"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="signup">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="signup-area mb-5">
+                        <form id="signup-form" action="{% url 'signup'%}" method="post">
+                            {% csrf_token%}
+                            <input type="text" class="form-control mb-3" name="first_name" id="first_name" placeholder="Your First Name" required>
+
+                            <input type="text" class="form-control mb-3" name="last_name" id="last_name" placeholder="Your Last Name" required>
+
+                            <input type="text" class="form-control mb-3" name="username" id="username" placeholder="Your Username" required>
+
+                            <input type="email" class="form-control mb-3" name="email" id="email" placeholder="Your Email" required>
+
+                            <input type="password" class="form-control mb-3" name="pass1" id="pass1" placeholder="Enter Password" required>
+
+                            <input type="password" class="form-control" name="pass2" id="re-pass2" placeholder="Repeat Password" required>
+
+                            <div class="signup-box mt-3">
+                                <input type="checkbox" class="form-control" name="signin-checkbox" id="signin-checkbox" required><span class="ml-3">I agree all statements in Terms of service</span>
+                            </div>
+                            <div class="signup-btn mt-3">
+                                <button type="submit" class="btn w-50">Register</button>
+                            </div>
+                        </form>
+                        <div style="padding: 40px;">
+                            {% for message in messages%}
+                            <p style="color: red;">{{message}}</p>
+                            <p id="msg" style="color: black;"></p>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="signup-img">
+                        <img src="{% static 'assets/images/signup-image.jpg' %}">
+                    </div>
+                    <div class="already-member text-center mt-3">
+                        <a href="#">Already a member ?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="copyright-area">
+                        <a href="#">&#169; 2020. All Rights Reserved by EssenialSofts</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="terms-area">
+                        <a href="#">Terms & Conditions</a>
+                        <span> | </span>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'assets/js/jquery.js' %}">
+    </script>
+    <script src="{% static 'assets/js/bootstrap.js' %}"></script>
+    <script src="{% static 'assets/js/all.js' %}"></script>
+</body>
+</body>
+
+</html>

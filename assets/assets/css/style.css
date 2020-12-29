@@ -1,0 +1,186 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    margin: 0;
+    padding: 0;
+}
+body{
+    color: white;
+}
+p{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+a{
+    color: white;
+}
+.btn{
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 10px 12px;
+}
+.btn:hover{
+    background-color: #ffffff;
+    color: #0087b4;
+    padding: 10px 12px;
+}
+.form-control{
+    height: 50px;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
+}
+section{
+    padding: 100px 0;
+}
+.navbar-brand{
+    width: 5%;
+}
+.navbar-brand img{
+    width: 100%;
+}
+section{
+background-image: url(../images/atm-bg.png);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.terms-area a,
+.terms-area span,
+.copyright-area a{
+    color: #ffffff;
+}
+.box{
+    text-align: center;
+    padding: 20px 0;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    transition: 1s all ease;
+    -webkit-transition: 1s all ease;
+}
+.box:hover{
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+.box:hover a{
+    color: #0087b4;
+}
+
+footer{
+    padding: 20px 0;
+    background-color: black;
+}
+.terms-area{
+    float: right;
+}
+@media only screen and (max-width:767px){
+    .terms-area{
+        float: none;
+        text-align: center;
+    }
+    .copyright-area{
+        text-align: center;
+    }
+    .amount-btns button{
+        width: 100%!important;
+        margin-bottom: 20px;
+    }
+    .amount-btns a{
+        width: 100%!important;
+    }
+}
+
+
+.sign-in-img img{
+    width: 100%;
+}
+#signin-form .form-control{
+    color: white;
+    padding-left: 35px;
+    padding-left: 35px;
+    border: none;
+    background: none;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+}
+#signin-form .form-control::placeholder{
+    color: white;
+}
+.user{
+    position: absolute;
+    margin-top: 18px;
+    margin-left: 10px;
+}
+.lock{
+    position: absolute;
+    margin-top: -34px;
+    margin-left: 10px;
+}
+.signin-box{
+    display: inline-flex;
+}
+.signin-box .form-control{
+    width: 18px;
+    height: 25px;
+}
+
+.signin-options li{
+    display: inline;
+}
+.signin-options a{
+    margin: 5px;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    transition: .5s all ease;
+    -webkit-transition: .5s all ease;
+}
+
+.signin-options a:hover{
+    color: #0087b4;
+    background-color: #ffffff;
+}
+
+
+.signup-img img{
+    width: 100%;
+}
+#signup-form .form-control{
+    color: white;
+    padding-left: 35px;
+    padding-left: 35px;
+    border: none;
+    background: none;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+}
+#signup-form .form-control::placeholder{
+    color: white;
+}
+.signup-box{
+    display: inline-flex;
+}
+.signup-box .form-control{
+    width: 18px;
+    height: 25px;
+}
+.user1{
+    position: absolute;
+    top: 16px;
+}
+.lock1{
+    position: absolute;
+   top: 150px;
+}
+.lock2{
+    position: absolute;
+    top: 216px;
+}
+.mail1{
+    position: absolute;
+    top: 85px;
+}
