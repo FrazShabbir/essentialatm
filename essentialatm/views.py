@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User , auth
 from django.contrib import messages
 from .models import useracc
-import requests 
 import datetime
 import io
 from django.http import FileResponse
@@ -111,7 +110,7 @@ def deposit(request):
         return render(request,"thankyou.html",{'newbal':newbal, 'prebal':prebal,'submitted':submitted})
 
     else:
-        return render(request,"deposit.html",{'details':details})
+        return render(request,"deposit.html")
 
 
 
